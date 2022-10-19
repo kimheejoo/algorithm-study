@@ -45,7 +45,7 @@ while True:
 
 
     # S/B 판정 출력
-    print(f'{s_cnt}S{b_cnt}B')
+    print(f'{s_cnt}S / {b_cnt}B')
     try_cnt += 1
     # 3S가 되었다면? -> 정답 맞춤! -> 게임 종료!
     if s_cnt == 3:
