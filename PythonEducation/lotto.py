@@ -19,6 +19,11 @@ for i in range(6):
 
         is_range_ok = (1 <= input_num) and (input_num <= 45)
 
+        # 무한 반복 종료 조건 2. 이미 등록한 번호가 아니어야함.
+        # 중복인가? 내 로또 번호에 이미, 입력값이 들어있는가?
+        # input_num이 my_lotto_num 안에 포함되어 있는가?
+        is_duplicated = input_num in my_lotto_numbers
+
         if is_range_ok:
             # 검사 통과 시 무한 반복 종료
             break
@@ -26,4 +31,7 @@ for i in range(6):
             # 범위 검사 탈락 시 안내 문구
             print('1~45의 값만 입력 가능합니다.')
             # 다시 입력 시킨다 -> 무한반복 유지 -> break X
+    my_lotto_numbers.append(input_num)
+
+print(my_lotto_numbers)
 
