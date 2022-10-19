@@ -3,7 +3,7 @@
 # 1. 6개의 숫자 입력받기
 
 from audioop import mul
-from random import randint, random
+from random import randint, random, sample
 
 
 my_lotto_numbers = list()
@@ -41,7 +41,7 @@ for i in range(6):
     my_lotto_numbers.append(input_num)
 
 # 입력한 숫자 목록 확인
-print(my_lotto_numbers)
+print(f'나의 로또번호: {my_lotto_numbers}')
 
 # 숫자 목록을 작은 수 ~ 큰 수로 정렬. (sort)
 
@@ -62,26 +62,29 @@ for idx, val in enumerate(my_lotto_numbers):
             my_lotto_numbers[j] = my_lotto_numbers[j+1]
             my_lotto_numbers[j+1] = tmp
         
-print(my_lotto_numbers)
+print(f'정렬 후: {my_lotto_numbers}')
 
-# 당첨번호 목록
-win_number_list = list()
+# # 당첨번호 목록
+# win_number_list = list()
 
-# 6개의 숫자를 뽑자.
+# # 6개의 숫자를 뽑자.
 
-for i in range(6):
-    # 사용할 수 있는 번호가 나올 때까지 무한 반복
-    while True:
-        #random.random() => 0.0 ~ 0.9999의 랜덤값 출현
-        rand_num = int(random() * 45 + 1)
-        if rand_num not in win_number_list:
-            win_number_list.append(rand_num)
-            break
+# for i in range(6):
+#     # 사용할 수 있는 번호가 나올 때까지 무한 반복
+#     while True:
+#         #random.random() => 0.0 ~ 0.9999의 랜덤값 출현
+#         rand_num = int(random() * 45 + 1)
+#         if rand_num not in win_number_list:
+#             win_number_list.append(rand_num)
+#             break
 
-# print(win_number_list)
+win_number_list = sample(range(1,46), 6)
 
 # 당첨 번호도 순서대로 정리 - 파이썬 제공 기능 활용
 win_number_list.sort()
+
+print(f'당첨번호: {win_number_list}')
+
 
 # 당첨번호 6개 생성 이후, 보너스 번호 하나 추가 생성
 # 기존 당첨 번호와 중복되면 안됨.
@@ -95,7 +98,7 @@ while True:
 # 임시 처리: 당첨번호, 보너스 번호를 고정해둬야 테스트 하기 편하다.
 win_number_list = [10, 15, 20 , 25, 30, 35]
 bonus = 40 # 보너스 번호 고정
-print(win_number_list)
+print(f'임의의 당첨번호: {win_number_list}')
 
 print(f'보너스 번호: {bonus}')
 
