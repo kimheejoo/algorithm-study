@@ -8,7 +8,7 @@ from random import sample
 
 cpu_numbers = sample(range(1, 10), 3)
 
-print(cpu_numbers)
+print(f'정답: {cpu_numbers}')
 
 while True:
     # 숫자 3개를 저장할 공간
@@ -34,8 +34,18 @@ while True:
     s_cnt = 0
     b_cnt = 0
 
-    for i in range(3):
-        for j in range(3):
-            
+    for user_idx, user_val in enumerate(user_numbers):
+        for com_idx, com_val in enumerate(cpu_numbers):
+            if user_val == com_val:
+                if user_idx == com_idx:
+                    s_cnt += 1
+                else: b_cnt += 1
 
+
+    # S/B 판정 출력
+    print(f'{s_cnt}S{b_cnt}B')
     # 3S가 되었다면? -> 정답 맞춤! -> 게임 종료!
+    if s_cnt == 3:
+        break
+
+print('추가뿌!!')
