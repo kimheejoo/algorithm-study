@@ -36,4 +36,26 @@ for i in range(6):
             # 다시 입력 시킨다 -> 무한반복 유지 -> break X
     my_lotto_numbers.append(input_num)
 
+# 입력한 숫자 목록 확인
+print(my_lotto_numbers)
 
+# 숫자 목록을 작은 수 ~ 큰 수로 정렬. (sort)
+
+# bubble sort 구현해보기
+
+# 2개씩 짝지어 비교 -> 순서가 잘못 됐으면 서로 위치 변경 -> 통째로 6번 반복
+
+for idx, val in enumerate(my_lotto_numbers):
+    
+    #2개씩 뽑아서 비교
+    for j in range(5):
+
+        # 순서가 잘못되었나? 앞의 숫자가 더 큰가?
+        if my_lotto_numbers[j] > my_lotto_numbers[j+1]:
+            # 두 자료의 위치를 변경
+            # 두 변수의 위치 바꿔주기
+            tmp = my_lotto_numbers[j]
+            my_lotto_numbers[j] = my_lotto_numbers[j+1]
+            my_lotto_numbers[j+1] = tmp
+        
+print(my_lotto_numbers)
