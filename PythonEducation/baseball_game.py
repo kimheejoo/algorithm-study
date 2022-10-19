@@ -16,3 +16,16 @@ while True:
 
     # 3자리 숫자를 입력하면 -. 3칸의 목록으로 분리
     input_num = int(input('3자리 숫자를 입력: '))
+
+    # ex. 123 -> [1, 2, 3]으로 분리.
+    # 3자리 정수가 들어왔다고 전제하자.
+
+    # 제일 먼저 추가: 백의 자리
+    # 그 다음: 십의 자리
+    # 마지막: 일의 자리
+
+    user_numbers.append(input_num // 100)
+    user_numbers.append((input_num // 10) % 10)
+    user_numbers.append(input_num % 10)
+
+    print(user_numbers)
