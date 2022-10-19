@@ -2,7 +2,8 @@
 
 # 1. 6개의 숫자 입력받기
 
-from random import random
+from audioop import mul
+from random import randint, random
 
 
 my_lotto_numbers = list()
@@ -82,4 +83,36 @@ for i in range(6):
 # 당첨 번호도 순서대로 정리 - 파이썬 제공 기능 활용
 win_number_list.sort()
 
+# 당첨번호 6개 생성 이후, 보너스 번호 하나 추가 생성
+# 기존 당첨 번호와 중복되면 안됨.
+
+while True:
+    # 1~45의 랜덤을 쉽게 뽑는 방법?
+    bonus = randint(1, 45)
+    if bonus not in win_number_list:
+        break
+
+# 임시 처리: 당첨번호, 보너스 번호를 고정해둬야 테스트 하기 편하다.
+win_number_list = [10, 15, 20 , 25, 30, 35]
+bonus = 40 # 보너스 번호 고정
 print(win_number_list)
+
+print(f'보너스 번호: {bonus}')
+
+cnt = 0
+
+for i in my_lotto_numbers:
+    if i in win_number_list:
+        cnt += 1
+
+if cnt == 6:
+    print('1등~')
+elif cnt == 5:
+    if bonus in my_lotto_numbers:
+        print('2등')
+    else: print('3등')
+elif cnt == 4:
+    print('4등')
+elif cnt == 3:
+    print('5등')
+else: print('꽝....')
