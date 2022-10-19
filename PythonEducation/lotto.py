@@ -2,6 +2,9 @@
 
 # 1. 6개의 숫자 입력받기
 
+from random import random
+
+
 my_lotto_numbers = list()
 
 # 6번 숫자를 입력: for
@@ -59,3 +62,19 @@ for idx, val in enumerate(my_lotto_numbers):
             my_lotto_numbers[j+1] = tmp
         
 print(my_lotto_numbers)
+
+# 당첨번호 목록
+win_number_list = list()
+
+# 6개의 숫자를 뽑자.
+
+for i in range(6):
+    # 사용할 수 있는 번호가 나올 때까지 무한 반복
+    while True:
+        #random.random() => 0.0 ~ 0.9999의 랜덤값 출현
+        rand_num = int(random() * 45 + 1)
+        if rand_num not in win_number_list:
+            win_number_list.append(rand_num)
+            break
+
+print(win_number_list)
